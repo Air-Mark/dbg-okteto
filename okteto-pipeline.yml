@@ -1,5 +1,5 @@
 deploy:
-  - apt install docker -y
+  - apt install docker-ce docker-ce-cli containerd.io -y
   - docker build -t dropuserinfo/dbg_app:${OKTETO_GIT_COMMIT} src
   - docker push dropuserinfo/dbg_app:${OKTETO_GIT_COMMIT}
   - helm upgrade --install dbg-okteto chart --set tag=${OKTETO_GIT_COMMIT}
