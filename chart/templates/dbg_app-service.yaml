@@ -12,5 +12,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app.kubernetes.io/name: dbg_app
+    app.kubernetes.io/name: dbg-app
     app.kubernetes.io/instance: {{ .Release.Name }}
