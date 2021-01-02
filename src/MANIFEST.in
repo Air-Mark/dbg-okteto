@@ -1,0 +1,3 @@
+recursive-include dbg_app/templates *.txt *.html
+recursive-include dbg_app/static *
+recursive-include dbg_app/locale *.po *.mo

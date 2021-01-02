@@ -1,0 +1,5 @@
+tag: dev
+
+dbg_app:
+  replicaCount: 1
+  image: dropuserinfo/dbg_app

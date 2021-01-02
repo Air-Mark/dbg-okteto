@@ -1,0 +1,5 @@
+deploy:
+  - okteto build -t dropuserinfo/dbg_app:${OKTETO_GIT_COMMIT} src
+  - helm upgrade --install dbg-okteto chart --set tag=${OKTETO_GIT_COMMIT}
+devs:
+  - src/okteto.yml

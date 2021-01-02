@@ -1,0 +1,16 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "dbg-okteto.fullname" . }}
+  labels:
+    {{- include "dbg-okteto.labels" . | nindent 4 }}
+  annotations:
+    dev.okteto.com/generate-host: "true"
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              serviceName: dbg_app
+              servicePort: 888

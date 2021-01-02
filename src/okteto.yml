@@ -1,0 +1,6 @@
+name: api
+command: ["runserver.sh"]
+forward:
+  - 888:888
+persistentVolume:
+  enabled: false

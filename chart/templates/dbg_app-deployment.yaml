@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dbg_app
+  labels:
+    {{- include "dbg-okteto.labels" . | nindent 4 }}
+    app.kubernetes.io/component: dbg_app
+spec:
+  replicas: {{ .Values.dbg_app.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: dbg_app
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: dbg_app
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      terminationGracePeriodSeconds: 0
+      initContainers:
+        - name: load-data
+          image: {{ .Values.dbg_app.image }}:{{ .Values.tag }}
+          command:
+            - yarn
+            - load
+      containers:
+        - name: dbg_app
+          image: {{ .Values.dbg_app.image }}:{{ .Values.tag }}
+          ports:
+            - name: http
+              containerPort: 888
+              protocol: TCP
