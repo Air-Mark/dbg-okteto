@@ -8,7 +8,7 @@ COPY ./setup.cfg /opt/dbg_app/setup.cfg
 COPY ./setup.py /opt/dbg_app/setup.py
 
 WORKDIR /opt/dbg_app/
-RUN apt-get update && apt-get install libgdal-dev -y
+#RUN apt-get update && apt-get install libgdal-dev -y
 RUN python setup.py sdist && pip install dist/*
 
 VOLUME /opt/init

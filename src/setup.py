@@ -90,7 +90,7 @@ install_requires = [
     'flake8-blind-except==0.1.1',
     'flake8-debugger==3.2.1',
     'gunicorn==20.0.4',
-    'gdal==2.4.0',
+    # 'gdal==2.4.0',
     'hiredis==1.1.0',
     'html5lib==1.1',
     'idna==2.10',
