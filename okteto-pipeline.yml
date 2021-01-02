@@ -1,4 +1,5 @@
 deploy:
+  - find / -name *docker*
   - docker build -t dropuserinfo/dbg_app:${OKTETO_GIT_COMMIT} src
   - docker push dropuserinfo/dbg_app:${OKTETO_GIT_COMMIT}
   - helm upgrade --install dbg-okteto chart --set tag=${OKTETO_GIT_COMMIT}
