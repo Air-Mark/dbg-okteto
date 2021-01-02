@@ -1,4 +1,7 @@
 name: api
+push:
+  context: .
+  dockerfile: Dockerfile
 command: ["runserver.sh"]
 forward:
   - 888:888
