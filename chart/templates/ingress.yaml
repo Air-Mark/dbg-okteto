@@ -12,5 +12,5 @@ spec:
         paths:
           - path: /
             backend:
-              serviceName: dbg_app
+              serviceName: dbg-app
               servicePort: 888
