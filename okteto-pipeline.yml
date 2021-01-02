@@ -1,5 +1,5 @@
 deploy:
-  - okteto build -l debug -t docker.io/dropuserinfo/dbg_app:${OKTETO_GIT_COMMIT} src
+  - okteto build -l debug -t registry.hub.docker.com/dropuserinfo/dbg_app:${OKTETO_GIT_COMMIT} src
   - helm upgrade --install dbg-okteto chart --set tag=${OKTETO_GIT_COMMIT}
 devs:
   - src/okteto.yml
